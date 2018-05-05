@@ -30,7 +30,17 @@ class Register extends Component {
       password2
     };
 
-    console.log(newUser);
+    fetch("/api/users/register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err.response.data));
   };
 
   render() {
@@ -50,7 +60,6 @@ class Register extends Component {
                     name="name"
                     value={this.state.name}
                     onChange={this.onChange}
-                    required
                   />
                 </div>
                 <div className="form-group">
