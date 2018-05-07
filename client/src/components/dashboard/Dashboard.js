@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profileAction";
 import Spinner from "../widgets/Loader";
+import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -15,9 +16,23 @@ class Dashboard extends Component {
     let dashboardContent;
 
     if (profile === null || loading) {
-      dashboardContent = <Spinner />
+      dashboardContent = <Spinner />;
     } else {
-      dashboardContent = <h1>Hello</h1>;
+      //Check if logged user have profile
+      if (Object.keys(profile).length > 0) {
+        dashboardContent = <h4>Display profile</h4>;
+      } else {
+        //User dont have profile
+        dashboardContent = (
+          <div>
+            <p className="lead text-muted">Welcome {user.name}</p>
+            <p>You have not yet setup a profile, please add some info</p>
+            <Link to="/create-profile" className="btn btn-lg btn-info">
+              Create Profile
+            </Link>
+          </div>
+        );
+      }
     }
 
     return (
