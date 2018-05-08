@@ -5,6 +5,8 @@ import TextFieldGroup from "../widgets/textFieldGroup";
 import TextareaFieldGroup from "../widgets/TextareaFieldGroup";
 import InputGroup from "../widgets/InputGroup";
 import SelectListGroup from "../widgets/SelectListGroup";
+import { createProfile } from "../../actions/profileAction";
+import { withRouter } from "react-router-dom";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -27,6 +29,14 @@ class CreateProfile extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
   toggleButton = () => {
     this.setState({
       displaySocialInput: !this.state.displaySocialInput
@@ -42,7 +52,23 @@ class CreateProfile extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubUsername: this.state.githubUsername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedIn: this.state.linkedIn,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram
+    };
+
+    this.props.createProfile(profileData, this.props.history);
   };
 
   render() {
@@ -185,7 +211,11 @@ class CreateProfile extends Component {
                   info="Tell us a little about yourself"
                 />
                 <div className="mb-3">
-                  <button onClick={this.toggleButton} className="btn btn-light">
+                  <button
+                    type="button"
+                    onClick={this.toggleButton}
+                    className="btn btn-light"
+                  >
                     Add Social Network Links
                   </button>
                   <span className="text-muted">Optional</span>
@@ -215,4 +245,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps, { createProfile })(
+  withRouter(CreateProfile)
+);
