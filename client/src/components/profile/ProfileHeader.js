@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import isEmpty from "../../validations/isEmpty";
-
+import PropTypes from "prop-types";
 class ProfileHeader extends Component {
   render() {
     const { profile } = this.props;
@@ -91,5 +91,9 @@ class ProfileHeader extends Component {
     );
   }
 }
+
+ProfileHeader.propTypes = {
+  profile: PropTypes.object.isRequired
+};
 
 export default ProfileHeader;
