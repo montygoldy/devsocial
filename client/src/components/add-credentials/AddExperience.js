@@ -11,7 +11,7 @@ class AddExperience extends Component {
     this.state = {
       company: "",
       title: "",
-      locations: "",
+      location: "",
       from: "",
       to: "",
       current: false,
