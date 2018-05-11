@@ -21,6 +21,7 @@ import AddEducation from "./components/add-credentials/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/not-found/NotFound";
+import Posts from "./components/posts/Posts";
 
 //Check for token
 if (localStorage.jwtToken) {
@@ -68,8 +69,9 @@ class App extends Component {
                   component={AddExperience}
                 />
                 <PrivateRoute path="/add-education" component={AddEducation} />
+                <PrivateRoute path="/not-found" component={NotFound} />
               </Switch>
-              <Route path="/not-found" component={NotFound} />
+              <Route path="/feed" component={Posts} />
             </div>
             <Footer />
           </div>
