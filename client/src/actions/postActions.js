@@ -4,7 +4,8 @@ import {
   ADD_POST,
   GET_POSTS,
   POST_LOADING,
-  DELETE_POST
+  DELETE_POST,
+  GET_POST
 } from "./types";
 
 //ADD POST
@@ -56,6 +57,19 @@ export const removeLike = (id) => dispatch => {
     payload: err.response.data
   }))
 }
+
+//GET post
+export const getPost = (id) => dispatch => {
+  dispatch(setPostLoading());
+  axios.get(`/api/posts/${id}`).then(res => dispatch({
+    type: GET_POST,
+    payload: res.data
+  })).catch(err => dispatch({
+    type: GET_POST,
+    payload: null
+  }))
+}
+
 
 // Set loading state
 export const setPostLoading = () => {
