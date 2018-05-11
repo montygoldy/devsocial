@@ -20,6 +20,7 @@ import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
+import NotFound from "./components/not-found/NotFound";
 
 //Check for token
 if (localStorage.jwtToken) {
@@ -51,33 +52,24 @@ class App extends Component {
             <Navbar />
             <Route exact path="/" component={Landing} />
             <div className="container">
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/profiles" component={Profiles} />
-              <Route exact path="/profile/:handle" component={Profile} />
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <Route path="/profiles" component={Profiles} />
+              <Route path="/profile/:handle" component={Profile} />
               <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute path="/dashboard" component={Dashboard} />
                 <PrivateRoute
-                  exact
                   path="/create-profile"
                   component={CreateProfile}
                 />
+                <PrivateRoute path="/edit-profile" component={EditProfile} />
                 <PrivateRoute
-                  exact
-                  path="/edit-profile"
-                  component={EditProfile}
-                />
-                <PrivateRoute
-                  exact
                   path="/add-experience"
                   component={AddExperience}
                 />
-                <PrivateRoute
-                  exact
-                  path="/add-education"
-                  component={AddEducation}
-                />
+                <PrivateRoute path="/add-education" component={AddEducation} />
               </Switch>
+              <Route path="/not-found" component={NotFound} />
             </div>
             <Footer />
           </div>
