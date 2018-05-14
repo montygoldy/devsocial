@@ -24,6 +24,16 @@ a.nav-link:hover {
   color: #1E8495 !important;
 }
 
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
 img {
   width: 100%;
 }
@@ -92,6 +102,17 @@ video {
 
 .masthead .masthead-content p {
   font-size: 1.2rem;
+}
+
+input {
+  font-weight: 300;
+}
+
+input[type="submit"] {
+  font-size: 1.5rem;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .card-form {

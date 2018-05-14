@@ -17,9 +17,6 @@ class Landing extends Component {
           <video loop autoplay ref="video">
             <source src={Video} type="video/mp4" />Your browser does not support
             the video tag. I suggest you upgrade your browser.
-            <source src="/img/video/Home-work.webm" type="video/webm" />Your
-            browser does not support the video tag. I suggest you upgrade your
-            browser.
           </video>
         </div>
         <div className="masthead">
