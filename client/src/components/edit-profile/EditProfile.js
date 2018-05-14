@@ -17,6 +17,7 @@ class CreateProfile extends Component {
       displaySocialInput: false,
       handle: "",
       company: "",
+      skills: "",
       website: "",
       location: "",
       status: "",
