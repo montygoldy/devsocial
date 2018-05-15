@@ -21,7 +21,7 @@ class Posts extends Component {
       postContent = <PostFeed posts={posts} />;
     }
     return (
-      <div className="feed">
+      <div className="feed mt-5 mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

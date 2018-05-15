@@ -14,14 +14,16 @@ class ProfileItem extends Component {
           <div className="col-lg-6 col-md-4 col-8">
             <h3>{profile.user.name}</h3>
             <p>
-              {profile.status}{" "}
+              {profile.status}
               {isEmpty(profile.company) ? null : (
-                <span>at {profile.company}</span>
+                <span>
+                  at <strong>{profile.company}</strong>
+                </span>
               )}
             </p>
             <p>
               {isEmpty(profile.location) ? null : (
-                <span>{profile.location}</span>
+                <span className="skill-list-div">{profile.location}</span>
               )}
             </p>
             <Link to={`/profile/${profile.handle}`} className="btn btn-info">
@@ -33,8 +35,9 @@ class ProfileItem extends Component {
             <ul className="list-group">
               {profile.skills.slice(0, 4).map((skill, i) => (
                 <li key={i} className="list-group-item">
-                  <i className="fa fa-check pr-1" />
-                  {skill}
+                  <div className="skill-list-div">
+                    <i className="fa fa-check pr-1" /> {skill}
+                  </div>
                 </li>
               ))}
             </ul>

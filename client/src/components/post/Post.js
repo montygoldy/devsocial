@@ -27,11 +27,11 @@ class Post extends Component {
       );
     }
     return (
-      <div className="post">
+      <div className="post mb-5 mt-5">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/feed" className="btn btn-light mn-3">
+              <Link to="/feed" className="btn btn-light mb-3">
                 Back to Feed
               </Link>
               {postContent}

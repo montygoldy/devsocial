@@ -32,7 +32,10 @@ class Dashboard extends Component {
         dashboardContent = (
           <div>
             <p className="lead text-muted">
-              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+              Welcome{" "}
+              <Link to={`/profile/${profile.handle}`} className="handle-link">
+                {user.name}
+              </Link>
             </p>
             <ProfileActions />
             <Experience experience={profile.experience} />
@@ -59,7 +62,7 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="dashboard">
+      <div className="dashboard mt-5 mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

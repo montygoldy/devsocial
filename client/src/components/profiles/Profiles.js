@@ -25,7 +25,7 @@ class Profiles extends Component {
       }
     }
     return (
-      <div className="profiles">
+      <div className="profiles mt-5 mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

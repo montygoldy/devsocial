@@ -30,7 +30,7 @@ class ProfileAbout extends Component {
             <h3 className="text-center text-info">Skill Set</h3>
             <div className="row">
               <div
-                className="d-flex flex-wrap justify-content-center align-items-center"
+                className="d-flex flex-wrap justify-content-center align-items-center skill-list-div"
                 style={{ width: "100%" }}
               >
                 {skillList}

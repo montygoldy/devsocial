@@ -135,7 +135,7 @@ class CreateProfile extends Component {
       { label: "Other", value: "Other" }
     ];
     return (
-      <div className="create-profile">
+      <div className="create-profile mt-5 mb-5">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
