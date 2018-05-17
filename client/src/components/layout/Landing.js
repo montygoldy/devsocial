@@ -8,13 +8,12 @@ class Landing extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
-    this.refs.video.play();
   }
   render() {
     return (
       <div className="landing-wrapper">
         <div className="video-container">
-          <video loop autoplay ref="video">
+          <video loop autoPlay muted>
             <source src={Video} type="video/mp4" />Your browser does not support
             the video tag. I suggest you upgrade your browser.
           </video>
