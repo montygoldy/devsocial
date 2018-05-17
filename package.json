@@ -8,7 +8,8 @@
     "start": "babel-node server.js",
     "client": "npm start --prefix client",
     "server": "nodemon --exec babel-node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postBuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm ruun build --prefix client"
   },
   "author": "Manpreet Sandhu",
   "license": "MIT",
